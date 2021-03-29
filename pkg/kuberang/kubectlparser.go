@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os/exec"
 
-	"github.com/apprenda/kuberang/pkg/config"
+	"github.com/ukhomeoffice/kuberang/pkg/config"
 )
 
 type KubeOutput struct {

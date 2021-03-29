@@ -9,8 +9,8 @@ import (
 
 	"errors"
 
-	"github.com/apprenda/kuberang/pkg/config"
-	"github.com/apprenda/kuberang/pkg/util"
+	"github.com/ukhomeoffice/kuberang/pkg/config"
+	"github.com/ukhomeoffice/kuberang/pkg/util"
 )
 
 const (
