@@ -3,8 +3,8 @@ package main
 import (
 	"io"
 
-	"github.com/apprenda/kuberang/pkg/config"
-	"github.com/apprenda/kuberang/pkg/kuberang"
+	"github.com/ukhomeoffice/kuberang/pkg/config"
+	"github.com/ukhomeoffice/kuberang/pkg/kuberang"
 	"github.com/spf13/cobra"
 )
 

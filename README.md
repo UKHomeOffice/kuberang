@@ -1,5 +1,5 @@
 # Kuberang
-[![CircleCI](https://circleci.com/gh/apprenda/kuberang.svg?style=svg)](https://circleci.com/gh/apprenda/kuberang)
+[![Build Status](https://drone-gh.acp.homeoffice.gov.uk/api/badges/UKHomeOffice/kuberang/status.svg)](https://drone-gh.acp.homeoffice.gov.uk/UKHomeOffice/kuberang)
 
 `kuberang` is a command-line utility for smoke testing a Kubernetes install.
 

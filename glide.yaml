@@ -1,4 +1,4 @@
-package: github.com/apprenda/kuberang
+package: github.com/ukhomeoffice/kuberang
 import:
 - package: gopkg.in/yaml.v2
 - package: github.com/spf13/cobra

@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/apprenda/kuberang/pkg/util"
+	"github.com/ukhomeoffice/kuberang/pkg/util"
 )
 
 // Set via linker flag

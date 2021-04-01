@@ -1,0 +1,40 @@
+---
+kind: pipeline
+name: default
+type: kubernetes
+
+platform:
+  os: linux
+  arch: amd64
+
+workspace:
+  path: /go/src/github.com/ukhomeoffice/kuberang
+
+steps:
+- name: build
+  pull: if-not-exists
+  image: golang:1.8
+  commands:
+  - make build
+
+- name: push-github-release
+  pull: if-not-exists
+  image: alpine
+  environment:
+    GITHUB_TOKEN:
+      from_secret: github_token
+    GHR_VERSION: 0.13.0
+  commands:
+  - mkdir release
+  - cp bin/linux/amd64/kuberang release/kuberang-linux-amd64
+  - cp bin/darwin/amd64/kuberang release/kuberang-darwin-amd64
+  - wget https://github.com/tcnksm/ghr/releases/download/v$${GHR_VERSION}/ghr_v$${GHR_VERSION}_linux_amd64.tar.gz
+  - tar --strip-components=1 -xvzf ghr_v$${GHR_VERSION}_linux_amd64.tar.gz && rm -rf ghr_v$${GHR_VERSION}_linux_amd64.tar.gz
+  - if [[ $${DRONE_TAG} == *"-rc"* ]]; then
+      ./ghr -u $${DRONE_REPO_OWNER} -r $${DRONE_REPO_NAME} -prerelease -replace $${DRONE_TAG} release/ ;
+    else
+      ./ghr -u $${DRONE_REPO_OWNER} -r $${DRONE_REPO_NAME} -soft $${DRONE_TAG} release/ ;
+    fi
+  when:
+    event:
+    - tag
